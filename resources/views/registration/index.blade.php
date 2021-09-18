@@ -50,7 +50,15 @@
                 <label for="exampleInputNational_id1" class="form-label">NID</label>
                 <input type="number" name="national_id" class="form-control" id="exampleInputNational_id1">
             </div>
-            
+            <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Upload Image</label>
+                                    <input class="input--style-4" type="file" name="myfile">
+                                </div>
+                            </div>
+            </div>
+            <br>
             <div class="mb-3">
                 <label for="exampleInputNational_id1" class="form-label">User Type</label>
                 <select type="dropdown" id="usertype" class="form-control" >
