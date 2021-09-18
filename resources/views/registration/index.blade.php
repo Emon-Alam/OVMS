@@ -33,6 +33,12 @@
                 <input type="number" name="phone" class="form-control" id="exampleInputPhone1">
             </div>
             <div class="mb-3">
+                <label for="exampleInputGender1" class="form-label">Gender</label><br>
+                <input  type="radio" name="gender"  value="male">Male<br>
+                <input  type="radio" name="gender"  value="female">Female<br>
+                <input  type="radio" name="gender"  value="other">Other<br>
+            </div>
+            <div class="mb-3">
                 <label for="exampleInputAddress1" class="form-label">Adress</label>
                 <input type="text" name="address" class="form-control" id="exampleInputAddress1" >
             </div>
@@ -41,15 +47,19 @@
                 <input type="date" name="date_of_birth" class="form-control" id="exampleInputDate_of_birth1" >
             </div>
             <div class="mb-3">
-                <label for="exampleInputNational_id1" class="form-label">Phone</label>
+                <label for="exampleInputNational_id1" class="form-label">NID</label>
                 <input type="number" name="national_id" class="form-control" id="exampleInputNational_id1">
             </div>
-
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            
+            <div class="mb-3">
+                <label for="exampleInputNational_id1" class="form-label">User Type</label>
+                <select type="dropdown" id="usertype" class="form-control" >
+                <option>User</option>
+                <option >Volunteer</option>
+                </select>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
        
        
