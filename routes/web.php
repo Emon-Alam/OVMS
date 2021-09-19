@@ -26,3 +26,10 @@ Route::post('login', 'LoginController@login')->name('login');
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('registration', 'RegistrationController@index')->name('registration');
+Route::post('registration', 'RegistrationController@store')->name('registration');
+
+Route::post('update/image','RegistrationController@updateImage')->name('update_image');
+
+Route::post('dashboard', 'DashboardController@update');
+
+Route::get('logout', 'LogoutController@index')->name('logout');

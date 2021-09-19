@@ -5,16 +5,18 @@
     <div class="container-fluid top-container">
         <h1 class="text-center">Registration</h1>
        
-        <form  method="post" class="mx-3 loginForm">
+        <form  method="post" enctype='multipart/form-data' class="mx-3 loginForm">
             @csrf
 
-            <div class="mb-3">
-                <label for="exampleInputFirst_name1" class="form-label">First Name</label>
-                <input type="text" name="first_name" class="form-control" id="exampleInputFirst_name1" >
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputLast_name1" class="form-label">Last Name</label>
-                <input type="text" name="last_name" class="form-control" id="exampleInputLast_name1" >
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="exampleInputFirst_name1" class="form-label">First Name</label>
+                    <input type="text" name="first_name" class="form-control" id="exampleInputFirst_name1" >
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="exampleInputLast_name1" class="form-label">Last Name</label>
+                    <input type="text" name="last_name" class="form-control" id="exampleInputLast_name1" >
+                </div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputUsername1" class="form-label">User Name</label>
@@ -34,9 +36,10 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputGender1" class="form-label">Gender</label><br>
-                <input  type="radio" name="gender"  value="male">Male<br>
-                <input  type="radio" name="gender"  value="female">Female<br>
-                <input  type="radio" name="gender"  value="other">Other<br>
+                
+                <input class=""  type="radio" name="gender"  value="male"> <span class="ps-1">Male</span> 
+                <input class="ms-3"  type="radio" name="gender"  value="female"> <span class="ps-1">Female</span> 
+                <input class="ms-3"  type="radio" name="gender"  value="other"> <span class="ps-1">Other</span> 
             </div>
             <div class="mb-3">
                 <label for="exampleInputAddress1" class="form-label">Adress</label>
@@ -51,17 +54,23 @@
                 <input type="number" name="national_id" class="form-control" id="exampleInputNational_id1">
             </div>
             <div class="row row-space">
-                            <div class="col-2">
+                            <div class="col-6">
                                 <div class="input-group">
-                                    <label class="label">Upload Image</label>
-                                    <input class="input--style-4" type="file" name="myfile">
+                                    <div class="row">
+                                        <label class="label">Upload Image</label>
+
+                                    </div>
+                                    <div class="row">
+                                        <input class="mt-3" type="file" name="myfile">
+
+                                    </div>
                                 </div>
                             </div>
             </div>
             <br>
             <div class="mb-3">
                 <label for="exampleInputNational_id1" class="form-label">User Type</label>
-                <select type="dropdown" id="usertype" class="form-control" >
+                <select  type="dropdown" name="usertype" class="form-select w-50" >
                 <option>User</option>
                 <option >Volunteer</option>
                 </select>
