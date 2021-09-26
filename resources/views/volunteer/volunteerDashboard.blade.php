@@ -1,7 +1,7 @@
 <h3 class="text-center">Volunteer Work Profile</h3>
 
 @if (session('msg'))
-    <h4 class="text-center text-success">{{ session('msg') }}</h4>
+<h4 class="text-center text-success">{{ session('msg') }}</h4>
 
 @endif
 <input type="hidden" id="_token" value={{ csrf_token() }}>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Accept</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="clsBtn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
                 </form>
             </div>
@@ -86,11 +86,13 @@
         });
 
 
+     
+        
         setInterval(function() {
             if(!isFounded) {
                 fetchWork('{{ route('work.fetch', ['v_id' => session('userid')]) }}', myModal)
             }
-        }, 5000);
+        }, 1000);
 
 
 

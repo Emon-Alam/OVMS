@@ -48,7 +48,7 @@ class RegistrationController extends Controller
             if ($user->save()) {
                 $user->image="user".$user->id.".jpg";
                 $user->save();
-                $voluterInfo->userid =  $user->id;
+                $voluterInfo->userid =$user->id;
                 $voluterInfo->save();
                 $file->move('assets/images/users/', 'user' . $user->id . '.jpg');
                 $request->session()->flash('msg', 'Registration is successful! Please login...');

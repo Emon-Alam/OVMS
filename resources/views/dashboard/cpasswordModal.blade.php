@@ -26,6 +26,7 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
@@ -42,5 +43,5 @@
 </script>
 
 @error('password')
-    <span style="color: red">{{ $message }}</span>
+<span style="color: red">{{ $message }}</span>
 @enderror
