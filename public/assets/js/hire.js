@@ -71,13 +71,13 @@ function countDownControll(id) {
             clearInterval(timer);
             document.getElementById(
                 "clock"
-            ).innerHTML = `<span class="h2 fw-bold text-uppercase text-danger"> Request Declined </span>`;
+            ).innerHTML = `<span class="h2 fw-bold text-uppercase text-danger"> Request Expired Try Again </span>`;
             cancelRequest(id);
         } else if (timeout < 0) {
             clearInterval(timer);
             document.getElementById(
                 "clock"
-            ).innerHTML = `<span class="h2 fw-bold text-uppercase text-danger"> Request Declined </span>`;
+            ).innerHTML = `<span class="h2 fw-bold text-uppercase text-danger"> Request Expired Try Again</span>`;
             cancelRequest(id);
         }
     }, 1000);
