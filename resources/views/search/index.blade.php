@@ -45,7 +45,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title text-secondary text-success text-uppercase" id="requestWaitingModalLabel">
                         Waiting for Volunteer to Accept</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" onclick="closeRequestModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="h3 text-center fw-bold" id="clock"></div>

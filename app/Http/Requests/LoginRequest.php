@@ -25,7 +25,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => 'required|email:rfc|max:50|min:10',
-            'password' => 'required|min:3|max:8',
+            'password' => 'required|min:3|max:20',
         ];
     }
     public function messages()
@@ -34,7 +34,7 @@ class LoginRequest extends FormRequest
           
             'password.required' => "Password can't be empty...",
             'password.min' => "Password must be minimum 3 characters...",
-            'password.max' => "Password can't exceed 8 characters...",
+            'password.max' => "Password can't exceed 20 characters...",
 
             'email.required' => "Email can't be empty...",
             'email.min' => "Email must be minimum 10 characters...",
