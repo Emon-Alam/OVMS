@@ -11,9 +11,11 @@
 
     <div class="">
         <label for=" worktype">WorkType</label>
-        <select name="worktype" class="form-select" required id="">
-            <option value="heavyA">HeavyA</option>
-            <option value="heavyB">HeavyB</option>
+        <select name="worktype" class="form-select" required id="worktype">
+
+            <option value="heavyA" @if (old('worktype')=="heavyA" ) selected="selected" @endif>Heavy(Aiqugfbebf-weight
+                up to 10kg)</option>
+            <option value="heavyB" @if (old('worktype')=="heavyB" ) selected="selected" @endif>HeavyB</option>
             <option value="heavyC">HeavyC</option>
             <option value="moderateA">ModerateA</option>
             <option value="moderateB">ModerateB</option>
@@ -55,13 +57,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">JOB OFFER!!</h5>
-                    <button type="button" class="btn-close" id="smallCls" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" id="smallCls" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                        
-                        <h5 class="text-uppercase text-success" id="work_details">
 
-                        </h5>
+                    <h5 class="text-uppercase text-success" id="work_details">
+
+                    </h5>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" id="acceptBtn" class="btn btn-primary">Accept</button>
