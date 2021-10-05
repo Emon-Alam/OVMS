@@ -10,32 +10,55 @@
     @csrf
 
     <div class="">
-        <label for=" worktype">WorkType</label>
+        <label for=" worktype" class="fs-5">WorkType</label>
         <select name="worktype" class="form-select" required id="worktype">
 
-            <option value="heavyA" @if (old('worktype')=="heavyA" ) selected="selected" @endif>Heavy(Aiqugfbebf-weight
-                up to 10kg)</option>
-            <option value="heavyB" @if (old('worktype')=="heavyB" ) selected="selected" @endif>HeavyB</option>
-            <option value="heavyC">HeavyC</option>
-            <option value="moderateA">ModerateA</option>
-            <option value="moderateB">ModerateB</option>
-            <option value="moderateC">ModerateC</option>
-            <option value="liteA">LiteA</option>
-            <option value="liteB">LiteB</option>
-            <option value="liteC">LiteC</option>
+            <option value="Heavy-Weight Groceries">Heavy-Weight Groceries: (In
+                between 6-15 kg)</option>
+            <option value="Heavy- Weight Delivering Parcel">Heavy- Weight Delivering Parcel: (In
+                between 6-15 kg)</option>
+            <option value="Heavy-Weight Collecting Parcel">Heavy-Weight Collecting Parcel: (In
+                between 6-15 kg)</option>
+            <option value="Heavy-Weight Collecting Others">Heavy-Weight Collecting Others: (In
+                between 6-15 kg)</option>
+            <option value="Moderate-Weight Groceries">Moderate-Weight Groceries: (In
+                between 2-6 kg) </option>
+            <option value="Moderate- Weight Delivering Parcel">Moderate- Weight Delivering
+                Parcel: (In
+                between 2-6 kg)</option>
+            <option value="Moderate-Weight Collecting Parcel">Moderate-Weight Collecting Parcel:
+                (In
+                between 2-6 kg)</option>
+            <option value="Moderate-Weight Collecting Others">Moderate-Weight Collecting Others:
+                (In
+                between 2-6 kg</option>
+            <option value="Lite-Weight Groceries">Lite-Weight Groceries: (In
+                between 0-2 kg)</option>
+            <option value="Lite- Weight Delivering Parcel">Lite- Weight Delivering Parcel: (In
+                between 0-2 kg)</option>
+            <option value="Lite-Weight Collecting Parcel">Lite-Weight Collecting Parcel: (In
+                between 0-2 kg)</option>
+            <option value="Lite-Weight Collecting Medical Supplement">Lite-Weight Collecting
+                Medical Supplement </option>
+            <option value="Lite-Weight Collecting Others">Lite-Weight Collecting Others: (In
+                between 0-2 kg</option>
         </select>
     </div>
-
+    <p class="text-justify py-1 small">Per kg 50TK in current town where company is located, Per kg 130TK charge
+        outside
+        the
+        city.</p>
     <div class="">
-        <label for=" area">Area</label>
+        <label for=" area" class="fs-5">Area</label>
         <select class="form-select" name="work_area" required id="">
             <option value="dhaka">Dhaka</option>
             <option value="chittagong">Chittagong</option>
             <option value="shylhet">Sylhet</option>
         </select>
     </div>
+    <br>
     <div class="">
-        <label for=" area">Availability</label>
+        <label for=" area" class="fs-5">Availability</label>
         <select class="form-select" name="availablity" required id="">
             <option value="yes">Yes</option>
             <option value="no">No</option>
