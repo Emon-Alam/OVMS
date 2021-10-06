@@ -67,6 +67,7 @@
 
     <input type="hidden" id="longitude" name="longitude">
     <input type="hidden" id="latitude" name="latitude">
+    
     <div id="submitBtn" class="text-center my-3">
         <button type="submit" class="btn btn-primary mx-3 px-5">Update</button>
 

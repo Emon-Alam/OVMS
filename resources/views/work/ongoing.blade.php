@@ -12,13 +12,6 @@
                 <h4 class="text-center" id="name-area">{{ session('username') }}</h4>
                 <ul class="list-group list-group-flush pt-3">
                     <div class="" id="messages">
-                        {{-- @if ($user->usertype == "Volunteer")
-                        <h3>{{ $user->username }}</h3>
-                        @endif
-                        @if ($user->usertype == "User")
-                        <h3>{{ $user->username }}</h3>
-                        @endif --}}
-                        <h4>{{ session('username') }}</h4>
 
                         {{-- <li class="list-group-item sender">1</li>
                             <li class="list-group-item reciever">2</li>

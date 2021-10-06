@@ -31,6 +31,8 @@ class WorkRequestController extends Controller
             $newWorkRequest->volunteer_id = $request->volunteerId;
             $newWorkRequest->details = "<strong>" . $user->username . "</strong>" . " is Looking to Hire your<br>" . $request->details;
             $newWorkRequest->status = "waiting";
+            $newWorkRequest->latitude = $request->latitude;
+            $newWorkRequest->longitude = $request->longitude;
             $newWorkRequest->expired_at = date("Y-m-d H:i:s", time() + 60);
             if ($newWorkRequest->save()) {
                 return response()->json($newWorkRequest);

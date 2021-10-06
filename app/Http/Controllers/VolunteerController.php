@@ -15,8 +15,8 @@ class VolunteerController extends Controller
         $volunteer->worktype= $request->worktype;
         $volunteer->work_area= $request->work_area;
         $volunteer->latitude= $request->latitude;
-        $volunteer->availablity= $request->availablity;
         $volunteer->longitude = $request->longitude;
+        $volunteer->availablity= $request->availablity;
 
         if($volunteer->save()){
             $request->session()->flash('msg','Information Update Successfully');
