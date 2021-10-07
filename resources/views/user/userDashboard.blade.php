@@ -41,6 +41,7 @@
             outside
             the
             city.</p>
+            
         <label for="forWork" class="fs-5">Area</label>
         <select class="form-select" name="area" id="">
             <option value="dhaka">Dhaka</option>
