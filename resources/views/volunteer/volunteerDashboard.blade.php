@@ -64,8 +64,8 @@
             <div class="">
                 <label for=" area" class="fs-5">Availability</label>
                 <select class="form-select" name="availablity" required id="">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+                    <option value="yes" @if($volun->availablity=='yes') selected @endif>Yes</option>
+                    <option value="no" @if($volun->availablity=='no') selected @endif>No</option>
                 </select>
             </div>
 
@@ -95,20 +95,20 @@
                     <div class="chat ml-2 p-3">
                         <div class="col-md-12"><label class="labels">Work Type</label>
                             <input disabled="disabled" type="text" name="worktype" class="form-control"
-                                value="{{$user->worktype}}">
+                                value="{{$volun->worktype}}">
                         </div>
                     </div>
 
                     <div class="chat ml-2 p-3">
                         <div class="col-md-12"><label class="labels">Work Area</label>
                             <input disabled="disabled" type="text" name="work_area" class="form-control"
-                                value="{{ $user->email }}">
+                                value="{{ $volun->work_area }}">
                         </div>
                     </div>
                     <div class="chat ml-2 p-3">
-                        <div class="col-md-12"><label class="labels">Availability</label>
-                            <input disabled="disabled" type="text" name="availability" class="form-control"
-                                value="{{ $user->availability }}">
+                        <div class="col-md-12"><label class="labels">Availablity</label>
+                            <input disabled="disabled" type="text" name="availablity" class="form-control"
+                                value="{{ $volun->availablity }}">
                         </div>
                     </div>
                 </div>

@@ -48,7 +48,7 @@ class WorkRequestController extends Controller
     public function fetchWork(Request $request, $v_id)
     {
 
-        $workRequest = WorkRequest::where('volunteer_id', $v_id)->first();
+        $workRequest = WorkRequest::where('volunteer_id', $v_id)->where('status', 'waiting')->first();
 
         if ($workRequest) {
             return response()->json($workRequest);
@@ -111,18 +111,26 @@ class WorkRequestController extends Controller
             ->orWhere('volunteer_id', $request->session()->get('userid'))
             ->first();
 
+
+
         if ($workRequest) {
-            $workChat = WorkChat::where('work_id', $workRequest->id)->first();
-
-            if ($workChat) {
+            if ($workRequest->status != 'accepted') {
+                return redirect()->route('dashboard');
             } else {
-                $workChat = new WorkChat;
-                $workChat->work_id = $workRequest->id;
-                $workChat->chat_id = "C" . $workRequest->id;
-                $workChat->save();
-            }
+                $workChat = WorkChat::where('work_id', $workRequest->id)->first();
 
-            return view("work.ongoing")->with('id', $id);
+                if ($workChat) {
+                } else {
+                    $workChat = new WorkChat;
+                    $workChat->work_id = $workRequest->id;
+                    $workChat->chat_id = "C" . $workRequest->id;
+                    $workChat->save();
+                }
+
+                $volunteerInfo = VolunteerInformation::where('userid', $workRequest->volunteer_id)->first();
+
+                return view("work.ongoing")->with('id', $id)->with('workRequest', $workRequest)->with('volunteer', $volunteerInfo);
+            }
         }
 
         return redirect()->route('dashboard');

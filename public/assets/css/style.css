@@ -63,6 +63,9 @@ body {
     border: 0px;
     border-radius: 0;
 }
+.leaflet-routing-container {
+    display: none;
+}
 
 .no-padding {
     padding: 2%;
