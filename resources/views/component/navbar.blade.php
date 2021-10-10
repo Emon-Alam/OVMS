@@ -22,13 +22,13 @@
                     <a class="nav-link active" aria-current="page" href="{{ route('user.edit') }}">Profile-Settings</a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('payment.payment') }}">Payment</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('review.review') }}">Review</a>
-                </li>
+                </li> --}}
                 @endif
 
                 @if (!session('username'))

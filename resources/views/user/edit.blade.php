@@ -47,7 +47,8 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Username</label>
-                            <input type="text" name="username" class="form-control" placeholder="enter username"
+                            <input disabled="disabled" type="text" name="username" class="form-control"
+                                placeholder="enter username"
                                 value="{{ (old('username') ? old('username') : $user->username ) }}">
                             @error('username')
                             <span style="color: red">{{ $message }}</span>

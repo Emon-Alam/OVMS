@@ -68,7 +68,9 @@ Route::get('work/chat/fetch/{workId}/{updatedAt}', 'WorkRequestController@chatFe
 Route::post('work/chat/post/{workId}', 'WorkRequestController@chatSend')->name('work.chat.post');
 
 //--------------
-Route::get('work/payment', 'PaymentController@payment')->name('payment.payment');
+Route::get('work/payment/{id}', 'PaymentController@showPayment')->name('payment.payment');
+Route::post('work/payment/{id}', 'PaymentController@paymentStore')->name('payment.store');
+
 Route::get('work/payment/review', 'ReviewController@review')->name('review.review');
 
 //--------------

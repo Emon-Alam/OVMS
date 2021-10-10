@@ -25,9 +25,9 @@ async function actionButton(type, workId) {
                 return response.json();
             })
             .then((response) => {
-                if (type == "complete") {
-                    window.location = "/dashboard";
-                    // window.location = '/payment'
+                if (type == "completed") {
+                    // window.location = "/dashboard";
+                    window.location = "/work/payment";
                 } else {
                     window.location = "/dashboard";
                 }
@@ -54,9 +54,9 @@ async function ChatFetcher(workId, senderId, isFromSend = false) {
             allData = data;
         });
     if (allData[4] != "accepted") {
-        if (allData[4] == "complete") {
-            window.location = "/dashboard";
-            // window.location = '/payment'
+        if (allData[4] == "completed") {
+            //window.location = "/dashboard";
+            window.location = "/work/payment";
         } else {
             window.location = "/dashboard";
         }

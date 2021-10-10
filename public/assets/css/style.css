@@ -140,9 +140,9 @@ body {
 }
 
 .chat-card {
-    min-height: 80vh;
-    max-height: 80vh;
-    border: 2px solid grey;
+    min-height: 75vh;
+    max-height: 75vh;
+    border: 2px solid #7ee3f5;
     border-radius: 8%;
     overflow: hidden;
 }
@@ -214,7 +214,7 @@ footer .card {
 }
 
 .leaflet-routing-container {
-    display:none;
+    display: none;
 }
 
 @media screen and (max-width: 768px) {

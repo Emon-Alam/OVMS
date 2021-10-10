@@ -90,25 +90,26 @@
                     <div class="">
                         <div class="d-flex flex-row justify-content-between p-3 adiv text-black"> <i
                                 class="fas fa-chevron-left"></i>
-                            <span class="pb-3">{{ session('username') }}</span> <i class="fas fa-times"></i> </div>
+                            <span class="pb-3 text-uppercase">{{ session('username') }}</span> <i
+                                class="fas fa-times"></i> </div>
                     </div>
                     <div class="chat ml-2 p-3">
                         <div class="col-md-12"><label class="labels">Work Type</label>
-                            <input disabled="disabled" type="text" name="worktype" class="form-control"
+                            <input disabled="disabled" type="text" name="worktype" class="form-control text-uppercase"
                                 value="{{$volun->worktype}}">
                         </div>
                     </div>
 
                     <div class="chat ml-2 p-3">
                         <div class="col-md-12"><label class="labels">Work Area</label>
-                            <input disabled="disabled" type="text" name="work_area" class="form-control"
+                            <input disabled="disabled" type="text" name="work_area" class="form-control text-uppercase"
                                 value="{{ $volun->work_area }}">
                         </div>
                     </div>
                     <div class="chat ml-2 p-3">
                         <div class="col-md-12"><label class="labels">Availability</label>
-                            <input disabled="disabled" type="text" name="availability" class="form-control"
-                                value="{{ $volun->availablity }}">
+                            <input disabled="disabled" type="text" name="availability"
+                                class="form-control text-uppercase" value="{{ $volun->availablity }}">
                         </div>
                     </div>
                 </div>

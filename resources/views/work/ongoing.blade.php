@@ -3,47 +3,65 @@
 @section('content')
 
 <div class="container top-container">
-            {{-- imports --}}
-            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-            crossorigin="" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    {{-- imports --}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-            crossorigin=""></script>
-        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-        {{-- imports --}}
-        <style>
-            #mapid {
-                height: 350px;
-                width: 100%;
-            }
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    {{-- imports --}}
+    <style>
+        #mapid {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 
-        </style>
 
-   
 
     <div class="row">
         <div class="col-lg-8">
             <div class="row">
-                <h1 class="text-center col-8">Map Part</h1>
+                <h1 class="text-center col-8 mb-4">Map Part</h1>
                 <div class="col-4">
-                    <button id="toggleButton" onclick="toggleDisplay()" class="btn btn-secondary mt-2" type="button">Show Path</button>
+                    <button id="toggleButton" onclick="toggleDisplay()" class="btn btn-secondary mt-4"
+                        type="button">Show Path</button>
+
+                    @if ($chatName->usertype == 'Volunteer' )
+                    <a class="btn btn-outline-primary mt-4 ms-3" href="tel:{{$chatName->phone}}"> Call
+                        Volunteer
+                    </a>
+                    @endif
+                    @if ($chatName->usertype == 'User' )
+                    <a class="btn btn-outline-primary mt-4 ms-3" href="tel:{{$chatName->phone}}"> Call User </a>
+                    @endif
 
                 </div>
 
             </div>
             <div id="mapid"></div>
-            <div class="w-100">
-                <button onclick="actionButton('complete',{{request()->id}})" class="btn btn-outline-success m-4">Completed</button>
-                <button onclick="actionButton('cancel',{{request()->id}})" class="btn btn-outline-danger m-4 float-right">Cancel</button>
+            <div class="w-100 ">
 
+                @if ($chatName->usertype == 'User' )
+                <button onclick="actionButton('complete',{{request()->id}})"
+                    class="btn btn-outline-success m-4">Completed</button>
+
+                <button onclick="actionButton('cancel',{{request()->id}})"
+                    class="btn btn-outline-danger m-4 float-right">Cancel</button>
+                @endif
+                @if ($chatName->usertype == 'Volunteer' )
+                <button onclick="actionButton('cancel',{{request()->id}})"
+                    class="btn btn-outline-danger m-4 float-right">Cancel</button>
+                @endif
             </div>
         </div>
         <div class="col-lg-4">
             <div class="card chat-card" id="name-area">
-                <h4 class="text-center" id="name-area">{{$chatName}}</h4>
+                <h4 class="text-center" id="name-area">{{$chatName->username}}</h4>
                 <ul class="list-group list-group-flush pt-3">
                     <div class="" id="messages">
 
@@ -77,8 +95,6 @@
 <script src="{{ asset('assets/js/ongoing.js') }}"></script>
 
 <script>
-
-
     let user = { latitude: {{$workRequest->latitude}},  longitude: {{$workRequest->longitude}} }
     let volun = { latitude: {{$volunteer->latitude}}, longitude: {{$volunteer->longitude}} }
 
