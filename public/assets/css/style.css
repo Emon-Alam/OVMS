@@ -63,9 +63,6 @@ body {
     border: 0px;
     border-radius: 0;
 }
-.leaflet-routing-container {
-    display: none;
-}
 
 .no-padding {
     padding: 2%;
@@ -214,6 +211,10 @@ footer .card {
 .sender {
     background-color: rgb(15, 109, 160, 0.85);
     text-align: right;
+}
+
+.leaflet-routing-container {
+    display:none;
 }
 
 @media screen and (max-width: 768px) {

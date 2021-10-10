@@ -48,7 +48,7 @@ class WorkRequestController extends Controller
     public function fetchWork(Request $request, $v_id)
     {
 
-        $workRequest = WorkRequest::where('volunteer_id', $v_id)->where('status', 'waiting')->first();
+        $workRequest = WorkRequest::where('volunteer_id', $v_id)->where('status','waiting')->first();
 
         if ($workRequest) {
             return response()->json($workRequest);
@@ -111,14 +111,15 @@ class WorkRequestController extends Controller
             ->orWhere('volunteer_id', $request->session()->get('userid'))
             ->first();
 
-
+        
 
         if ($workRequest) {
-            if ($workRequest->status != 'accepted') {
+            if($workRequest->status!='accepted') {
                 return redirect()->route('dashboard');
-            } else {
+            }
+            else{
                 $workChat = WorkChat::where('work_id', $workRequest->id)->first();
-
+    
                 if ($workChat) {
                 } else {
                     $workChat = new WorkChat;
@@ -126,10 +127,24 @@ class WorkRequestController extends Controller
                     $workChat->chat_id = "C" . $workRequest->id;
                     $workChat->save();
                 }
-
+    
                 $volunteerInfo = VolunteerInformation::where('userid', $workRequest->volunteer_id)->first();
 
-                return view("work.ongoing")->with('id', $id)->with('workRequest', $workRequest)->with('volunteer', $volunteerInfo);
+
+                $chatName = "";
+                $isUser = false;
+
+                if($workRequest->user->id == $request->session()->get('userid')) {
+                    $chatName = $workRequest->volunteer->username;
+                }
+                else
+                {
+                    $chatName = $workRequest->user->username;
+                    $isUser = true;
+                }
+    
+                return view("work.ongoing")->with('id', $id)->with('workRequest',$workRequest)->with('volunteer',$volunteerInfo)->with('chatName',$chatName)->with('isUser',$isUser);
+
             }
         }
 
@@ -150,9 +165,8 @@ class WorkRequestController extends Controller
             $chat = Chat::where('chat_id', "C" . $workRequest->id)
                 //->where('updated_at', ">=", $updatedAt)
                 ->get();
-
-
-            $jsonArray = array($workId, $updatedAt, date('Y-m-d H:i:s'), $chat);
+            $status = $workRequest->status;
+            $jsonArray = array($workId, $updatedAt, date('Y-m-d H:i:s'), $chat,$status);
 
             return response()->json($jsonArray);
         } else {
@@ -188,6 +202,23 @@ class WorkRequestController extends Controller
             }
         } else {
             return false;
+        }
+    }
+
+    public function workFinish(Request $request)
+    {
+        if($request->type=='complete') {
+            $workRequest = WorkRequest::find($request->workId);
+            $workRequest->status = "completed";
+            $workRequest->save();
+            return response()->json('WorkRequest Complete');
+        }
+        if($request->type=='cancel') {
+            
+            $workRequest = WorkRequest::find($request->workId);
+            $workRequest->status = "canceled";
+            $workRequest->save();
+            return response()->json('WorkRequest canceled');
         }
     }
 }

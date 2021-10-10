@@ -106,8 +106,8 @@
                         </div>
                     </div>
                     <div class="chat ml-2 p-3">
-                        <div class="col-md-12"><label class="labels">Availablity</label>
-                            <input disabled="disabled" type="text" name="availablity" class="form-control"
+                        <div class="col-md-12"><label class="labels">Availability</label>
+                            <input disabled="disabled" type="text" name="availability" class="form-control"
                                 value="{{ $volun->availablity }}">
                         </div>
                     </div>
@@ -166,8 +166,6 @@
                 fetchWork('{{ route('work.fetch', ['v_id' => session('userid')]) }}', myModal)
             }
         }, 1000);
-
-
 
     });
 </script>
