@@ -20,7 +20,8 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input value="{{old('password')}}" type="password" name="password" class="form-control" id="exampleInputPassword1">
+            <input value="{{old('password')}}" type="password" name="password" class="form-control"
+                id="exampleInputPassword1">
             @error('password')
             <span style="color: red">{{$message}}</span>
             @enderror
@@ -47,6 +48,6 @@
 </div>
 
 
-
+<br><br><br><br><br><br><br>
 
 @endsection

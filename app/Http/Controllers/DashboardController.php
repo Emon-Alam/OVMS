@@ -9,22 +9,16 @@ use App\VolunteerInformation;
 
 class DashboardController extends Controller
 {
-    
+
     public function index(Request $request)
     {
-        $user = User::where('id',$request->session()->get('userid'))->first();
-        $volunInfo = VolunteerInformation::where('userid',$request->session()->get('userid'))->first();
-        if($volunInfo)
-        {
-            return view('dashboard.index')->with('user',$user)->with('volun',$volunInfo);
-            
-        }
-        else
-        {
+        $user = User::where('id', $request->session()->get('userid'))->first();
+        $volunInfo = VolunteerInformation::where('userid', $request->session()->get('userid'))->first();
 
-            return view('dashboard.index')->with('user',$user);
+        if ($volunInfo) {
+            return view('dashboard.index')->with('user', $user)->with('volun', $volunInfo);
+        } else {
+            return view('dashboard.index')->with('user', $user);
         }
     }
-   
-
 }

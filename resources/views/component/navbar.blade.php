@@ -67,9 +67,32 @@
                     <button class="btn btn-outline-dark mx-2">Logout</button>
                 </a>
                 @endif
+                {{-- color --}}
+                <a>
+
+                    <label class="btn btn-outline-dark ">Theme</label>
+                </a>
+                <a>
+                    <input class="outline-success mx-2" id="colorpicker" type="color" value="#f5fdff"
+                        onclick="changecolor();" class="form-control form-control-color" title="Choose your color" />
+
+                </a>
+                {{-- color --}}
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </div>
         </div>
     </div>
 </nav>
+
+<script>
+    let colorpicker = document.getElementById('colorpicker');
+
+ setInterval(()=>{
+    let color = colorpicker.value;
+    document.body.style.backgroundColor = color;
+    //document.footer-color.style.backgroundColor = color;
+   // document.card.style.backgroundColor = color;
+    //document.navbar.bg-light.bootstrap.backgroundColor = color;
+    }, 10);
+</script>

@@ -71,7 +71,8 @@ Route::post('work/chat/post/{workId}', 'WorkRequestController@chatSend')->name('
 Route::get('work/payment/{id}', 'PaymentController@showPayment')->name('payment.payment');
 Route::post('work/payment/{id}', 'PaymentController@paymentStore')->name('payment.store');
 
-Route::get('work/payment/review', 'ReviewController@review')->name('review.review');
+Route::get('work/review', 'ReviewController@review')->name('review');
+Route::post('work/review', 'ReviewController@reviewStore')->name('review.store');
 
 //--------------
 Route::post('work/finish', 'WorkRequestController@workFinish')->name('work.finish');

@@ -15,7 +15,7 @@ body {
 .card {
     border: 0px;
     border-radius: 0;
-    background-color: #fdfdfd;
+    background-color: #e9f8fc;
 }
 
 .header-top {
@@ -171,7 +171,7 @@ body {
 
 footer,
 footer .card {
-    background-color: #f7f7f7;
+    background-color: #f2f2f2;
 }
 
 .line {
@@ -188,6 +188,10 @@ footer .card {
 
 .nav-item {
     display: flex;
+}
+
+.footer-color {
+    background-color: #d0e7ff;
 }
 
 .success {

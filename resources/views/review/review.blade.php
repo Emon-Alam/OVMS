@@ -8,15 +8,16 @@
     <h2 id="fh2">WE APPRECIATE YOUR REVIEW!</h2>
     <h6 id="fh6">Your review will help us to improve our volunteer services, and customer services.</h6>
 
+    <form id="feedback" class="w-75 m-auto" method="post" action="{{route('review.store')}}">
+        @csrf
 
-    <form id="feedback" action="">
         <div class="pinfo">Your personal info</div>
 
         <div class="form-group">
             <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input name="name" placeholder="John Doe" class="form-control" type="text">
+                    <input name="u_name" class="form-control" type="text" value="{{ session('username') }}">
                 </div>
             </div>
         </div>
@@ -25,7 +26,7 @@
             <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input name="email" type="email" class="form-control" placeholder="john.doe@yahoo.com">
+                    <input name="u_email" type="text" class="form-control" value="{{session('username')}}">
                 </div>
             </div>
         </div>
@@ -36,7 +37,7 @@
             <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-heart"></i></span>
-                    <select class="form-control" id="rate">
+                    <select class="form-control" name="rating" id="rate">
                         <option value="1star">1</option>
                         <option value="2stars">2</option>
                         <option value="3stars">3</option>
@@ -54,7 +55,7 @@
             <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                    <textarea class="form-control" id="review" rows="3"></textarea>
+                    <textarea name="details" class="form-control" id="review" rows="3"></textarea>
 
                 </div>
             </div>
@@ -65,3 +66,5 @@
 
     </form>
 </div>
+
+@endsection

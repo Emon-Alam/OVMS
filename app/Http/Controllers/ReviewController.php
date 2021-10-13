@@ -3,12 +3,53 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Payment;
+use App\User;
+use App\WorkRequest;
+use App\Review;
+use App\VolunteerInformation;
 
 class ReviewController extends Controller
 {
-    public function review()
+    public function review(Request $request)
     {
 
-        return view('review.review');
+        $user = User::where('id', $request->session()->get('userid'))->first();
+        $userr = VolunteerInformation::where('userid', $request->session()->get('userid'))->first();
+        $workRequest = WorkRequest::where('user_id', $request->session()->get('userid'))
+            ->orWhere('volunteer_id', $request->session()->get('userid'))
+            ->first();
+
+        return view('review.review')->with('user', $user)->with('workRequest', $workRequest)->with('userr', $userr);
+    }
+
+    public function reviewStore(Request $request)
+    {
+        $workRequest = WorkRequest::where('user_id', $request->session()->get('userid'))
+            ->orWhere('volunteer_id', $request->session()->get('userid'))
+            ->first();
+
+        if ($workRequest) {
+
+            $user = User::where('id', $request->session()->get('userid'))->first();
+
+            $review = new Review;
+            $review->work_id = $workRequest->id;
+            $review->u_Id = $workRequest->user_id;
+            $review->v_Id = $workRequest->volunteer_id;
+            $review->u_name = $user->username;
+            $review->u_email = $user->email;
+            $review->details = $request->details;
+            $review->rating = $request->rating;
+
+
+            $review->save();
+
+            return view('dashboard.index')->with('user', $user)->with('review', $review);
+        } else {
+            return back();
+        }
+
+        return back();
     }
 }
