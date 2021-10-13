@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div class="container-fluid top-container">
+<div class="containerr container-fluid top-container">
     <h1 class="text-center">OTP LOGIN</h1>
 
     <form onsubmit="submitForm(event)" class="mx-3 loginForm">
@@ -39,5 +39,5 @@
 <script src="{{asset('assets/js/otp.js')}}"></script>
 
 
-{{-- <br><br><br><br><br><br><br><br><br><br><br><br> --}}
+<br><br>
 @endsection

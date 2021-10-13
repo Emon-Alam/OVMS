@@ -3,15 +3,31 @@
 <div class="container top-container">
 
     <link rel="stylesheet" href="{{ asset('assets/css/payment.css') }}" />
-    <form class="w-75 m-auto" method="post" enctype="multipart/form-data">
+    <form novalidate class="w-75 m-auto" method="post" enctype="multipart/form-data">
         @csrf
         <div class="container mt-5 px-5">
             <div class="mb-4">
-                <h2>Confirm and pay</h2>
-                <span>please make the payment, Thank You Sir.</span>
+
+                <h2 class="d-flex justify-content-center">Confirm and Pay</h2>
+                <span class="badge bg-primary text-wrap fs-6">Please make the payment, Thank You
+                    Sir.</span>
+
+            </div>
+            <div class="col-md-4 d-flex justify-content-between">
+                <div>
+
+                    <span>You have to pay</span>
+
+                    <div class="d-flex flex-row align-items-end">
+                        <div class="mb-4 ">
+                            <h1 class="mb-0 yellow">৳549</h1>
+
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-12">
 
                     <div class="collapse" id="collapseExample6">
 
@@ -54,6 +70,7 @@
                             data-bs-toggle="collapse" href="#collapseExample6" aria-controls="collapseExample6"
                             aria-expanded="false">
                         <label class="ms-1" for="cash_payment">Cash Payment</label>
+
                         <input class="ms-3" type="radio" id="online_payment" name="payment_type" value="online_payment"
                             data-bs-toggle="collapse" href="#collapseExample6" aria-controls="collapseExample6"
                             aria-expanded="false">
@@ -61,24 +78,13 @@
 
                     </div>
 
-                    <div class="mt-4 mb-4 d-flex justify-content-between">
+                    <div class=" m-4 d-flex justify-content-around">
                         <span></span>
-                        <button type="submit" class="btn btn-primary mx-3 px-5 ">Pay</button>
+                        <button type="submit" class="btn btn-primary px-5 ms-5 ">Pay</button>
+
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div>
-                        <br><br>
-                        <span>You have to pay</span>
 
-                        <div class="d-flex flex-row align-items-end mb-5 ">
-                            <div class="mb-4 ">
-                                <h1 class="mb-0 yellow">৳549</h1>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </form>

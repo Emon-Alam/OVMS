@@ -12,6 +12,10 @@ body {
     background-color: #ffffff;
 }
 
+.containerr {
+    height: 70vh;
+}
+
 .card {
     border: 0px;
     border-radius: 0;

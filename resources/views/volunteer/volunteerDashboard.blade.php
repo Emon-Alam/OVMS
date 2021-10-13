@@ -9,7 +9,7 @@
 <form class="w-75 m-auto" method="post" action="{{ route('volunteer.update') }}">
     @csrf
 
-    <div class="row">
+    <div class="containerr row">
         <div class="col-lg-8">
 
             <div class="">
