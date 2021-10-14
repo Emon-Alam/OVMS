@@ -48,6 +48,7 @@ return array(
     'App\\Review' => $baseDir . '/app/Review.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\VolunteerInformation' => $baseDir . '/app/VolunteerInformation.php',
+    'App\\Work' => $baseDir . '/app/Work.php',
     'App\\WorkChat' => $baseDir . '/app/WorkChat.php',
     'App\\WorkRequest' => $baseDir . '/app/WorkRequest.php',
     'Asm89\\Stack\\Cors' => $vendorDir . '/asm89/stack-cors/src/Cors.php',

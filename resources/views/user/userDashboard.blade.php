@@ -1,4 +1,4 @@
-<div class="w-50 m-auto" style="width: 50rem;">
+<div class="w-50 m-auto containerr" style="width: 50rem;">
     <br>
 
     <h5 class="card-title text-center">Volunteer Work Type</h5>
@@ -41,7 +41,7 @@
             outside
             the
             city.</p>
-            
+
         <label for="forWork" class="fs-5">Area</label>
         <select class="form-select" name="area" id="">
             <option value="dhaka">Dhaka</option>
@@ -56,6 +56,7 @@
         </div>
     </form>
 </div>
+
 <!-- 
     </div>
     <div class="col-4">

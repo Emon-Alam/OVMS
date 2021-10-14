@@ -29,6 +29,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('review.review') }}">Review</a>
                 </li> --}}
+
                 @endif
 
                 @if (!session('username'))
@@ -73,7 +74,7 @@
                     <label class="btn btn-outline-dark ">Theme</label>
                 </a>
                 <a>
-                    <input class="outline-success mx-2" id="colorpicker" type="color" value="#f5fdff"
+                    <input class="outline-success mx-2" id="colorpicker" type="color" value="#edfafd"
                         onclick="changecolor();" class="form-control form-control-color" title="Choose your color" />
 
                 </a>

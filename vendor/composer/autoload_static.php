@@ -550,6 +550,7 @@ class ComposerStaticInitc22f60bfbc2839b35f0c8c81ef92cf46
         'App\\Review' => __DIR__ . '/../..' . '/app/Review.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\VolunteerInformation' => __DIR__ . '/../..' . '/app/VolunteerInformation.php',
+        'App\\Work' => __DIR__ . '/../..' . '/app/Work.php',
         'App\\WorkChat' => __DIR__ . '/../..' . '/app/WorkChat.php',
         'App\\WorkRequest' => __DIR__ . '/../..' . '/app/WorkRequest.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',

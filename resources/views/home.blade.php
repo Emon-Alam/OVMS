@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div class="container-fluid g-0">
+<div class="container-fluid top-container g-0">
     <!-- header -->
 
     <header class="w-100 header-top">

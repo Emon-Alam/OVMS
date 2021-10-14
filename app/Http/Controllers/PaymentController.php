@@ -48,7 +48,7 @@ class PaymentController extends Controller
 
             $payment->save();
 
-            return view('review.review')->with('id', $id)->with('user', $user)->with('payment', $payment);
+            return redirect()->route('review')->with('id', $id)->with('user', $user)->with('payment', $payment);
         } else {
             return back();
         }

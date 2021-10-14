@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\WorkRequest;
+use App\Work;
 use App\VolunteerInformation;
 use App\User;
 use App\WorkChat;
 use App\Chat;
+
 use App\Http\Requests\ChatRequest;
 
 class WorkRequestController extends Controller
@@ -208,10 +210,25 @@ class WorkRequestController extends Controller
     public function workFinish(Request $request)
     {
         if ($request->type == 'complete') {
+
             $workRequest = WorkRequest::find($request->workId);
             $workRequest->status = "completed";
-            $workRequest->save();
-            return response()->json('WorkRequest Complete');
+            if ($workRequest->status == "completed") {
+                $work = new Work;
+
+                $work->work_id = $workRequest->id;
+                $work->user_id = $workRequest->user_id;
+                $work->volunteer_id = $workRequest->volunteer_id;
+                $work->details = $workRequest->details;
+                $work->latitude = $workRequest->latitude;
+                $work->longitude = $workRequest->longitude;
+                $work->expired_at = $workRequest->expired_at;
+                $work->status = "completed";
+                $work->save();
+                $workRequest->save();
+                //$workRequest->delete();
+                return response()->json('WorkRequest Complete');
+            }
         }
         if ($request->type == 'cancel') {
 

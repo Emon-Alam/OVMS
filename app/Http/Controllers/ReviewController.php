@@ -15,12 +15,10 @@ class ReviewController extends Controller
     {
 
         $user = User::where('id', $request->session()->get('userid'))->first();
-        $userr = VolunteerInformation::where('userid', $request->session()->get('userid'))->first();
-        $workRequest = WorkRequest::where('user_id', $request->session()->get('userid'))
-            ->orWhere('volunteer_id', $request->session()->get('userid'))
-            ->first();
 
-        return view('review.review')->with('user', $user)->with('workRequest', $workRequest)->with('userr', $userr);
+        // dd($user);
+
+        return view('review.review')->with('user', $user);
     }
 
     public function reviewStore(Request $request)
@@ -45,7 +43,7 @@ class ReviewController extends Controller
 
             $review->save();
 
-            return view('dashboard.index')->with('user', $user)->with('review', $review);
+            return redirect()->route('dashboard')->with('user', $user)->with('review', $review);
         } else {
             return back();
         }
