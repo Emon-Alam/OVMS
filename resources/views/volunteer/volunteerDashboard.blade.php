@@ -17,34 +17,34 @@
                 <label for=" worktype" class="fs-5">WorkType</label>
                 <select name="worktype" class="form-select" required id="worktype">
 
-                    <option value="Heavy-Weight Groceries">Heavy-Weight Groceries: (In
+                    <option value="Heavy-Weight-Groceries">Heavy-Weight Groceries: (In
                         between 6-15 kg)</option>
-                    <option value="Heavy- Weight Delivering Parcel">Heavy- Weight Delivering Parcel: (In
+                    <option value="Heavy-Weight-Delivering-Parcel">Heavy- Weight Delivering Parcel: (In
                         between 6-15 kg)</option>
-                    <option value="Heavy-Weight Collecting Parcel">Heavy-Weight Collecting Parcel: (In
+                    <option value="Heavy-Weight-Collecting-Parcel">Heavy-Weight Collecting Parcel: (In
                         between 6-15 kg)</option>
-                    <option value="Heavy-Weight Collecting Others">Heavy-Weight Collecting Others: (In
+                    <option value="Heavy-Weight-Collecting-Others">Heavy-Weight Collecting Others: (In
                         between 6-15 kg)</option>
-                    <option value="Moderate-Weight Groceries">Moderate-Weight Groceries: (In
+                    <option value="Moderate-Weight-Groceries">Moderate-Weight Groceries: (In
                         between 2-6 kg) </option>
-                    <option value="Moderate- Weight Delivering Parcel">Moderate- Weight Delivering
+                    <option value="Moderate-Weight-Delivering-Parcel">Moderate- Weight Delivering
                         Parcel: (In
                         between 2-6 kg)</option>
-                    <option value="Moderate-Weight Collecting Parcel">Moderate-Weight Collecting Parcel:
+                    <option value="Moderate-Weight-Collecting-Parcel">Moderate-Weight Collecting Parcel:
                         (In
                         between 2-6 kg)</option>
-                    <option value="Moderate-Weight Collecting Others">Moderate-Weight Collecting Others:
+                    <option value="Moderate-Weight-Collecting-Others">Moderate-Weight Collecting Others:
                         (In
                         between 2-6 kg</option>
-                    <option value="Lite-Weight Groceries">Lite-Weight Groceries: (In
+                    <option value="Lite-Weight-Groceries">Lite-Weight Groceries: (In
                         between 0-2 kg)</option>
-                    <option value="Lite- Weight Delivering Parcel">Lite- Weight Delivering Parcel: (In
+                    <option value="Lite-Weight-Delivering-Parcel">Lite- Weight Delivering Parcel: (In
                         between 0-2 kg)</option>
-                    <option value="Lite-Weight Collecting Parcel">Lite-Weight Collecting Parcel: (In
+                    <option value="Lite-Weight-Collecting-Parcel">Lite-Weight Collecting Parcel: (In
                         between 0-2 kg)</option>
-                    <option value="Lite-Weight Collecting Medical Supplement">Lite-Weight Collecting
+                    <option value="Lite-Weight-Collecting-Medical-Supplement">Lite-Weight Collecting
                         Medical Supplement </option>
-                    <option value="Lite-Weight Collecting Others">Lite-Weight Collecting Others: (In
+                    <option value="Lite-Weight-Collecting-Others">Lite-Weight Collecting Others: (In
                         between 0-2 kg</option>
                 </select>
             </div>
@@ -91,7 +91,8 @@
                         <div class="d-flex flex-row justify-content-between p-3 adiv text-black"> <i
                                 class="fas fa-chevron-left"></i>
                             <span class="pb-3 text-uppercase">{{ session('username') }}</span> <i
-                                class="fas fa-times"></i> </div>
+                                class="fas fa-times"></i>
+                        </div>
                     </div>
                     <div class="chat ml-2 p-3">
                         <div class="col-md-12"><label class="labels">Work Type</label>

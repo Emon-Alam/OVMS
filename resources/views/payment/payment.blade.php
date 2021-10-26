@@ -16,12 +16,12 @@
             <div class="col-md-4 d-flex justify-content-between">
                 <div>
 
-                    <span>You have to pay</span>
+                    <span>You have to pay </span>
 
                     <div class="d-flex flex-row align-items-end">
                         <div class="mb-4 ">
-                            <h1 class="mb-0 yellow">৳549</h1>
-
+                            <h1 class="mb-0 yellow">৳{{$amount}}</h1>
+                            {{-- <input type="hidden" name="amount" value="{{$amount}}"> --}}
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                     <div class="collapse" id="collapseExample6">
 
                         <div class="card p-3">
-                            <h6 class="text-uppercase">Payment details</h6>
+                            <h6 class="text-uppercase">Payment details </h6>
                             <div class="inputbox mt-3">
                                 <input type="text" name="card_name" class="form-control" required="" />
                                 <span>Name on card</span>
@@ -67,8 +67,9 @@
 
                     <div>
                         <input type="radio" id="cash_payment" name="payment_type" value="cash_payment"
-                            data-bs-toggle="collapse" href="#collapseExample6" aria-controls="collapseExample6"
-                            aria-expanded="false">
+                            onclick="maintainCollapse()">
+                        <!-- data-bs-toggle="collapse" href="#collapseExample" aria-controls="collapseExample" -->
+                        <!-- aria-expanded="false" -->
                         <label class="ms-1" for="cash_payment">Cash Payment</label>
 
                         <input class="ms-3" type="radio" id="online_payment" name="payment_type" value="online_payment"
@@ -88,6 +89,19 @@
             </div>
         </div>
     </form>
+
+    <script>
+        function maintainCollapse()
+        {
+            let collapse = document.getElementById('collapseExample6');
+           try {
+               collapse.classList.remove("show");
+           } catch (error) {
+               
+           }
+        }
+    </script>
+
 </div>
 
 @endsection
