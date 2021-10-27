@@ -19,6 +19,17 @@ class PaymentController extends Controller
         $paymentBudgetArray = [
             "Heavy-Weight-Groceries" => 1500,
             "Heavy-Weight-Delivering-Parcel" => 2500,
+            "Heavy-Weight-Collecting-Parcel" => 2500,
+            "Heavy-Weight-Collecting-Others" => 2500,
+            "Moderate-Weight-Groceries" => 2500,
+            "Moderate-Weight-Delivering-Parcel" => 2500,
+            "Moderate-Weight-Collecting-Parcel" => 2500,
+            "Moderate-Weight-Collecting-Others" => 2500,
+            "Lite-Weight-Groceries" => 2500,
+            "Lite-Weight-Delivering-Parcel" => 2500,
+            "Lite-Weight-Collecting-Parcel" => 2500,
+            "Lite-Weight-Collecting-Medical-Supplement" => 2500,
+            "Lite-Weight-Collecting-Others" => 2500,
         ];
 
 
@@ -29,7 +40,7 @@ class PaymentController extends Controller
 
         $paymentAmount = $paymentBudgetArray[$workRequest->details];
 
-        return view('payment.payment')->with('amount', $paymentAmount);
+        return view('payment.payment')->with('details', $workRequest)->with('amount', $paymentAmount);
     }
     public function paymentStore(Request $request, $id)
     {
@@ -53,14 +64,14 @@ class PaymentController extends Controller
                 $payment->expire = "empty";
                 $payment->cvv = "empty";
                 $payment->status = "Done";
-                $payment->price = "400";
+                $payment->price = $request->amount;
             } else {
                 $payment->card_name = $request->card_name;
                 $payment->card_number = $request->card_number;
                 $payment->expire = $request->expire;
                 $payment->cvv = $request->cvv;
                 $payment->status = "Done";
-                $payment->price = "400";
+                $payment->price = $request->amount;
             }
 
             $payment->save();

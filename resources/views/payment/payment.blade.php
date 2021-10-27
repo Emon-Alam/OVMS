@@ -9,6 +9,7 @@
             <div class="mb-4">
 
                 <h2 class="d-flex justify-content-center">Confirm and Pay</h2>
+                <h4 class="d-flex justify-content-center">Work Details : {{$details->details}}</h4><br>
                 <span class="badge bg-primary text-wrap fs-6">Please make the payment, Thank You
                     Sir.</span>
 
@@ -17,11 +18,10 @@
                 <div>
 
                     <span>You have to pay </span>
-
                     <div class="d-flex flex-row align-items-end">
                         <div class="mb-4 ">
                             <h1 class="mb-0 yellow">৳{{$amount}}</h1>
-                            {{-- <input type="hidden" name="amount" value="{{$amount}}"> --}}
+                            <input type="hidden" name="amount" value="{{$amount}}">
                         </div>
                     </div>
                 </div>
