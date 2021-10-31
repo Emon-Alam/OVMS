@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('admin/userlist', 'AdminController@view')->name('admin.view');
+Route::get('admin/edit/{id}', 'AdminController@edit')->name('admin.edit');
+Route::post('admin/edit/update/{id}', 'AdminController@update')->name('admin.update');
+Route::post('admin/delete/{id}', 'AdminController@delete')->name('admin.delete');
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('login', 'LoginController@index')->name('login');
