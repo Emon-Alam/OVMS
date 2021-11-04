@@ -7,13 +7,15 @@
 <div class="container-fluid top-container">
 
 
-    <div class="containerr">
+    <div class="container">
 
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <title>All User List</title>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         </head>
 
         <body>
@@ -23,7 +25,9 @@
                 @endif
 
                 <h3 class="p-3">All User List</h3>
-                <form action="{{route('admin.view')}}" method="get">
+
+
+                <form action="{{route('admin.userlistview')}}" method="get">
 
                     <table class="table table-hover table-bordered border-info" border="1" style="width: 100%">
                         <div class="justify-content-center">

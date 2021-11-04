@@ -13,12 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//userlist 
 
-Route::get('admin/userlist', 'AdminController@view')->name('admin.view');
+Route::get('admin/userlist', 'AdminController@view')->name('admin.userlistview');
 Route::get('admin/edit/{id}', 'AdminController@edit')->name('admin.edit');
 Route::post('admin/edit/update/{id}', 'AdminController@update')->name('admin.update');
 Route::post('admin/delete/{id}', 'AdminController@delete')->name('admin.delete');
 
+//worklist 
+
+Route::get('admin/worklist', 'AdminController@worklistview')->name('admin.worklistview');
+Route::post('admin/worklist/delete/{id}', 'AdminController@workdelete')->name('admin.workdelete');
+
+//reviewlist 
+Route::get('admin/reviewlist', 'AdminController@reviewlistview')->name('admin.reviewlistview');
+Route::post('admin/reviewlist/delete/{id}', 'AdminController@reviewdelete')->name('admin.reviewdelete');
+
+//paymentlist
+Route::get('admin/paymentlist', 'AdminController@paymentlistview')->name('admin.paymentlistview');
+Route::post('admin/paymentlist/delete/{id}', 'AdminController@paymentdelete')->name('admin.paymentdelete');
+
+//live search
+
+//
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('login', 'LoginController@index')->name('login');
