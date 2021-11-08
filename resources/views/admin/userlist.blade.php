@@ -28,23 +28,27 @@
 
 
                 <form action="{{route('admin.userlistview')}}" method="get">
-
-                    <table class="table table-hover table-bordered border-info" border="1" style="width: 100%">
+                    <div class="d-grid gap-2 col-6">
+                        <input class="m-2 border border-info border-2 rounded-pill" type="text" name="" id="myInput"
+                            onkeyup="searchFun()" placeholder="search via user name">
+                    </div>
+                    <table id="myTable" class="table table-hover table-bordered border-info" border="1"
+                        style="width: 100%">
                         <div class="justify-content-center">
 
                             <tr class="table-info">
-                                <td class="text-uppercase">Id</td>
-                                <td class="text-uppercase">Username</td>
-                                <td class="text-uppercase">First Name</td>
-                                <td class="text-uppercase">Last Name</td>
-                                <td class="text-uppercase">Email</td>
-                                <td class="text-uppercase">Phone</td>
-                                <td class="text-uppercase">Address</td>
-                                <td class="text-uppercase">National ID</td>
-                                <td class="text-uppercase">Gender</td>
-                                <td class="text-uppercase">Date of Birth</td>
-                                <td class="text-uppercase">User Type</td>
-                                <td class="text-uppercase">Action</td>
+                                <th class="text-uppercase">Id</th>
+                                <th class="text-uppercase">Username</th>
+                                <th class="text-uppercase">First Name</th>
+                                <th class="text-uppercase">Last Name</th>
+                                <th class="text-uppercase">Email</th>
+                                <th class="text-uppercase">Phone</th>
+                                <th class="text-uppercase">Address</th>
+                                <th class="text-uppercase">National ID</th>
+                                <th class="text-uppercase">Gender</th>
+                                <th class="text-uppercase">Date of Birth</th>
+                                <th class="text-uppercase">User Type</th>
+                                <th class="text-uppercase">Action</th>
                             </tr>
                         </div>
 
@@ -93,3 +97,28 @@
 </html>
 <br><br>
 @endsection
+
+<script>
+    const searchFun =() =>{
+                        let filter = document.getElementById('myInput').value.toUpperCase();
+                        let myTable = document.getElementById('myTable');
+                        let tr = myTable.getElementsByTagName('tr');
+
+                        for (let i = 0; i<tr.length; i++) {
+                        let td= tr[i].getElementsByTagName('td')[1];
+                            if(td) {
+                                
+                                let textvlaue = td.textContent || td.innerHTML;
+                                if(textvlaue.toUpperCase().indexOf(filter) > -1){
+                                    tr[i].style.display = '';
+
+                                }else{
+                                    tr[i].style.display = 'none';
+                                }
+                            }
+                          
+                        }
+
+                     }
+   
+</script>

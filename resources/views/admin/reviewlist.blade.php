@@ -25,24 +25,29 @@
                 <h3 class="p-3">All Review List</h3>
                 <form action="{{route('admin.reviewlistview')}}" method="get">
 
+                    <div class="d-grid gap-2 col-6">
+                        <input class="m-2 border border-info border-2 rounded-pill" type="text" name="" id="myInput"
+                            onkeyup="searchFun()" placeholder="search via Work ID">
+                    </div>
 
-
-                    <table class="table table-hover table-bordered border-info" border="1" style="width: 100%">
+                    <table class="table table-hover table-bordered border-info" border="1" style="width: 100%"
+                        id="myTable">
                         <div class="justify-content-center">
 
                             <tr class="table-info">
-                                <td class="text-uppercase">Id</td>
-                                <td class="text-uppercase">Work Id</td>
-                                <td class="text-uppercase">User Id</td>
-                                <td class="text-uppercase">User Name</td>
-                                <td class="text-uppercase">User Email</td>
-                                <td class="text-uppercase">Volunteer Id</td>
-                                <td class="text-uppercase">Review Details</td>
-                                <td class="text-uppercase">Rating</td>
-                                <td class="text-uppercase">Date Time</td>
-                                <td class="text-uppercase">Action</td>
+                                <th class="text-uppercase">Id</th>
+                                <th class="text-uppercase">Work Id</th>
+                                <th class="text-uppercase">User Id</th>
+                                <th class="text-uppercase">User Name</th>
+                                <th class="text-uppercase">User Email</th>
+                                <th class="text-uppercase">Volunteer Id</th>
+                                <th class="text-uppercase">Review Details</th>
+                                <th class="text-uppercase">Rating</th>
+                                <th class="text-uppercase">Date Time</th>
+                                <th class="text-uppercase">Action</th>
                             </tr>
                         </div>
+
                         @foreach($list as $key => $lists)
 
                         <tr class="">
@@ -73,7 +78,6 @@
 
                             </section>
                     </table>
-
                 </form>
 
             </center>
@@ -82,4 +86,30 @@
 </div>
 
 </html>
+
 @endsection
+
+<script>
+    const searchFun =() =>{
+                        let filter = document.getElementById('myInput').value.toUpperCase();
+                        let myTable = document.getElementById('myTable');
+                        let tr = myTable.getElementsByTagName('tr');
+
+                        for (let i = 0; i<tr.length; i++) {
+                        let td= tr[i].getElementsByTagName('td')[1];
+                            if(td) {
+                                
+                                let textvlaue = td.textContent || td.innerHTML;
+                                if(textvlaue.toUpperCase().indexOf(filter) > -1){
+                                    tr[i].style.display = '';
+
+                                }else{
+                                    tr[i].style.display = 'none';
+                                }
+                            }
+                          
+                        }
+
+                     }
+   
+</script>

@@ -36,7 +36,12 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
+
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('allreview') }}">Review</a>
+                </li>
+
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -52,7 +57,7 @@
                         </li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 @endif
             </ul>
             <div class="d-flex">

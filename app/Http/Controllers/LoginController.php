@@ -24,6 +24,7 @@ class LoginController extends Controller
 
         if ($user) {
             $request->session()->put('username', $user->username);
+            $request->session()->put('usertype', $user->usertype);
             $request->session()->put('userid', $user->id);
 
             return redirect()->route('dashboard');

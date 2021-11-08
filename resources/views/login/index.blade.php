@@ -42,7 +42,7 @@
     </div>
 
     @if (session('loginFailed'))
-    <h5 class="text-danger mt-3 text-center">Login Failed!</h5>
+    <h5 class="text-danger mt-3 text-center">User Email or Password does not exist</h5>
     @endif
 
 </div>

@@ -1,7 +1,12 @@
 <div class="container-fluid top-containerr">
     <center>
-        <div class="mb-5">
+        @if (session('msg'))
+        <h4 class="text-center text-success">{{ session('msg') }}</h4>
 
+        @endif
+
+        <div class="mb-5">
+            {{-- <h1>{{session('usertype')}}</h1> --}}
             <h1>Admin Dashboard</h1>
         </div>
         <a class="btn btn-outline-primary mb-3" href="{{route('admin.userlistview')}}">All Users list</a><br>
@@ -11,5 +16,5 @@
 
     </center>
 
-    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
 </div>

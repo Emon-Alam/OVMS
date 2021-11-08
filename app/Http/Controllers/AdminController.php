@@ -103,13 +103,13 @@ class AdminController extends Controller
 
     public function paymentlistview(Request $request)
     {
-        // $paymentlist = Payment::all();
-        $paymentlist = DB::table('payments')
-            ->join('users', 'users.id', '=', 'payments.u_id')
-            ->select()
-            ->get();
+        $paymentlist = Payment::all();
+        // $paymentlist = DB::table('payments')
+        //     ->join('users', 'users.id', '=', 'payments.u_id')
+        //     ->select()
+        //     ->get();
 
-        // dd($paymentlist);
+        //dd($paymentlist);
 
 
         return view('admin.paymentlist')->with('list', $paymentlist);

@@ -1,6 +1,9 @@
 <div class="w-50 m-auto containerr" style="width: 50rem;">
     <br>
+    @if (session('msg'))
+    <h4 class="text-center text-success">{{ session('msg') }}</h4>
 
+    @endif
     <h5 class="card-title text-center">Volunteer Work Type</h5>
     <form action="{{route('search')}}" method="get">
         <br>
