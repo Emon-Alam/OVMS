@@ -25,10 +25,10 @@
                 <h3 class="p-3">All Review List</h3>
                 <form action="{{route('allreview')}}" method="get">
 
-                    <div class="d-grid gap-2 col-6">
+                    {{-- <div class="d-grid gap-2 col-6">
                         <input class="m-2 border border-info border-2 rounded-pill" type="text" name="" id="myInput"
                             onkeyup="searchFun()" placeholder="search via name">
-                    </div>
+                    </div> --}}
 
                     <table class="table table-hover table-bordered border-info" border="1" style="width: 100%"
                         id="myTable">
