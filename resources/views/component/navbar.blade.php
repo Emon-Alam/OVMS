@@ -36,7 +36,15 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/#developerInfo">Developer Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/#advantagesInfo">Advantages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/#facility">Facility</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('allreview') }}">Review</a>
                 </li>
@@ -62,8 +70,11 @@
             </ul>
             <div class="d-flex">
                 @if (!session('username'))
+
+                @if (request()->routeIs('allreview'))
                 <input class="form-control me-2" type="text" onkeyup="searchFun()" id="myInput"
                     placeholder="Search Name" aria-label="Search">
+                @endif
 
                 <a href="{{ route('login') }}">
                     <button class="btn btn-outline-primary mx-2">Login</button>

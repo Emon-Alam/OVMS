@@ -110,7 +110,7 @@
     <!-- end of card-section-1  -->
 
     <!-- starting section-2 -->
-    <div class="container">
+    <div class="container" id="facility">
 
         <div class="row g-0 my-5">
             <h1 class="fw-bold text-center h3 m-auto pb-4 pt-5 mt-3">Making your facility known is our priority
@@ -210,7 +210,7 @@
 
 
     <!-- section-3 -->
-    <div class="container">
+    <div class="container" id="developerInfo">
         <div class="row g-0 pb-5 my-5 justify-content-around">
             <div class="col-lg-3 col-md-9 mx-md-4 col-sm-12">
                 <div class="card">
@@ -297,7 +297,7 @@
     <!-- end of section 3 -->
 
     <!-- starting section-4 -->
-    <div class="container">
+    <div class="container" id="advantagesInfo">
         <div class="row g-0 my-5 justify-content-around">
             <h1 class="fw-bold text-center h3 m-auto pb-4 pt-5 mt-3">Our Advantages</h1>
             <div class="col-lg-4 col-sm-12">
