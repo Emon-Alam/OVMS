@@ -21,7 +21,6 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('user.edit') }}">Profile-Settings</a>
                 </li>
-
                 {{-- <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('payment.payment') }}">Payment</a>
                 </li>
@@ -30,7 +29,20 @@
                     <a class="nav-link active" aria-current="page" href="{{ route('review.review') }}">Review</a>
                 </li> --}}
 
+                @if(session('usertype')=='User')
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('worklist') }}">Work list</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('paymentstatus') }}">Work payment
+                        status</a>
+                </li>
+
                 @endif
+
+                @endif
+
 
                 @if (!session('username'))
                 <li class="nav-item">

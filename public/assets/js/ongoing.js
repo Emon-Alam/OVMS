@@ -26,8 +26,8 @@ async function actionButton(type, workId) {
             })
             .then((response) => {
                 if (type == "completed") {
-                    // window.location = "/dashboard";
-                    window.location = `/work/payment/${workId}`;
+                    window.location = "/dashboard";
+                    // window.location = `/work/payment/${workId}`;
                 } else {
                     window.location = "/dashboard";
                 }
@@ -55,10 +55,10 @@ async function ChatFetcher(workId, senderId, isFromSend = false) {
         });
     if (allData[4] != "accepted") {
         if (allData[4] == "completed") {
-            //window.location = "/dashboard";
-            window.location = `/work/payment/${workId}`;
-        } else {
             window.location = "/dashboard";
+            // window.location = `/work/payment/${workId}`;
+        } else {
+            // window.location = "/dashboard";
         }
     }
     chats = allData[3];

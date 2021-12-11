@@ -12,8 +12,8 @@ class PaymentController extends Controller
     public function showPayment(Request $request, $id)
     {
         $workRequest = WorkRequest::where('id', $id)
-            ->orWhere('user_id', $request->session()->get('userid'))
-            ->orWhere('volunteer_id', $request->session()->get('userid'))
+            // ->orWhere('user_id', $request->session()->get('userid'))
+            // ->orWhere('volunteer_id', $request->session()->get('userid'))
             ->first();
 
         $paymentBudgetArray = [
@@ -42,11 +42,34 @@ class PaymentController extends Controller
 
         return view('payment.payment')->with('details', $workRequest)->with('amount', $paymentAmount);
     }
+    public function paymentstatus(Request $request)
+    {
+        $workRequest = WorkRequest::where('status', "completed")
+            ->where('user_id', $request->session()->get('userid'))
+            ->get();
+
+
+
+        foreach ($workRequest as $key => $value) {
+            $payment = Payment::where('work_id', $value->id)->first();
+            if ($payment) {
+                unset($workRequest[$key]);
+            } else {
+            }
+        }
+
+
+        // $workRequest = WorkRequest::all();
+
+        //dd($workRequest);
+        return view('user.paymentStatus')->with('list', $workRequest);
+    }
+
     public function paymentStore(Request $request, $id)
     {
         $workRequest = WorkRequest::where('id', $id)
-            ->orWhere('user_id', $request->session()->get('userid'))
-            ->orWhere('volunteer_id', $request->session()->get('userid'))
+            // ->orWhere('user_id', $request->session()->get('userid'))
+            // ->orWhere('volunteer_id', $request->session()->get('userid'))
             ->first();
         if ($workRequest) {
 

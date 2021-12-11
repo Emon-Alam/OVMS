@@ -28,10 +28,12 @@
 
 
                 <form action="{{route('admin.userlistview')}}" method="get">
+
                     <div class="d-grid gap-2 col-6">
                         <input class="m-2 border border-info border-2 rounded-pill" type="text" name="" id="myInput"
                             onkeyup="searchFun()" placeholder="search via user name">
                     </div>
+
                     <table id="myTable" class="table table-hover table-bordered border-info" border="1"
                         style="width: 100%">
                         <div class="justify-content-center">
@@ -106,14 +108,25 @@
 
                         for (let i = 0; i<tr.length; i++) {
                         let td= tr[i].getElementsByTagName('td')[1];
-                            if(td) {
+                        if(td) {
+                            
+                            let textvlaue = td.textContent || td.innerHTML;
+                            if(textvlaue.toUpperCase().indexOf(filter) > -1){
+                                tr[i].style.display = '';
                                 
-                                let textvlaue = td.textContent || td.innerHTML;
-                                if(textvlaue.toUpperCase().indexOf(filter) > -1){
-                                    tr[i].style.display = '';
+                            }else{
+                                    let td2= tr[i].getElementsByTagName('td')[2];
 
-                                }else{
-                                    tr[i].style.display = 'none';
+                                    if(td2) {
+                                        
+                                        let textvlaue = td2.textContent || td2.innerHTML;
+                                        if(textvlaue.toUpperCase().indexOf(filter) > -1){
+                                            tr[i].style.display = '';
+        
+                                        }else{
+                                            tr[i].style.display = 'none';
+                                        }
+                                    }                                    
                                 }
                             }
                           

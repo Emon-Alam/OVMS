@@ -37,10 +37,10 @@
             <div class="pinfo">Rate our overall services.</div>
 
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                        <span class="input-group-addon"><i class="fa fa-star"></i></span>
                         <select class="form-control" name="rating" id="rate">
                             <option value="1star">1</option>
                             <option value="2stars">2</option>
@@ -48,10 +48,25 @@
                             <option value="4stars">4</option>
                             <option value="5stars">5</option>
                         </select>
+
                     </div>
                 </div>
-            </div>
+            </div> --}}
+            <div class="rating-css">
 
+                <div class="star-icon">
+                    <input value="1star" type="radio" name="rating" id="rating1">
+                    <label for="rating1" class="fa fa-star"></label>
+                    <input value="2star" type="radio" name="rating" id="rating2">
+                    <label for="rating2" class="fa fa-star"></label>
+                    <input value="3star" type="radio" name="rating" id="rating3">
+                    <label for="rating3" class="fa fa-star"></label>
+                    <input value="4star" type="radio" name="rating" id="rating4">
+                    <label for="rating4" class="fa fa-star"></label>
+                    <input value="5star" type="radio" name="rating" id="rating5">
+                    <label for="rating5" class="fa fa-star"></label>
+                </div>
+            </div>
             <div class="pinfo">Write your feedback.</div>
 
 

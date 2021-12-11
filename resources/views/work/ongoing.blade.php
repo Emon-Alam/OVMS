@@ -66,14 +66,14 @@
                     <div class="" id="messages">
 
                         {{-- <li class="list-group-item sender">1</li>
-                            <li class="list-group-item reciever">2</li>
-                            <li class="list-group-item sender">3</li>
-                            <li class="list-group-item sender">4</li>
-                            <li class="list-group-item reciever">5</li>
-                            <li class="list-group-item sender">6</li>
-                            <li class="list-group-item sender">7</li>
-                            <li class="list-group-item reciever">8</li>
-                            <li class="list-group-item sender">9</li> --}}
+                        <li class="list-group-item reciever">2</li>
+                        <li class="list-group-item sender">3</li>
+                        <li class="list-group-item sender">4</li>
+                        <li class="list-group-item reciever">5</li>
+                        <li class="list-group-item sender">6</li>
+                        <li class="list-group-item sender">7</li>
+                        <li class="list-group-item reciever">8</li>
+                        <li class="list-group-item sender">9</li> --}}
                     </div>
                     <div class="row py-5 g-0 justify-content-around">
                         <div class="col-7">
@@ -98,7 +98,6 @@
     let user = { latitude: {{$workRequest->latitude}},  longitude: {{$workRequest->longitude}} }
     let volun = { latitude: {{$volunteer->latitude}}, longitude: {{$volunteer->longitude}} }
 
-    
 
     function setMapper(userlat,userlong,volunlat,volunlong) {
         var mymap = L.map('mapid').setView([userlat,userlong], 13);

@@ -16,18 +16,32 @@ class IsWorkRequestOngoing
      */
     public function handle($request, Closure $next)
     {
-        $workRequest = WorkRequest::where('status', "accepted")
-            ->orWhere('user_id', $request->session()->get('user_id'))
-            ->orWhere('volunteer_id', $request->session()->get('user_id'))
-            ->first();
+
+        $workRequest = WorkRequest::where('status', "accepted");
+        $user = $request->session()->get('usertype');
+
+
+
+
+        if ($user == 'User') {
+            $workRequest = $workRequest->where('user_id', $request->session()->get('userid'));
+        } else if ($user == 'Volunteer') {
+            $workRequest = $workRequest->where('volunteer_id', $request->session()->get('userid'));
+        } else if ($user == 'Admin') {
+            return $next($request);
+        }
+
+        $workRequest = $workRequest->first();
 
         if ($workRequest) {
-            return redirect()->route('work.ongoing',['id'=>$workRequest->id]);
-        }
-        else
-        {
-            return $next($request);
+            if ($request->session()->get('usertype') == 'User') {
+                return $next($request);
+            } else {
 
+                return redirect()->route('work.ongoing', ['id' => $workRequest->id]);
+            }
+        } else {
+            return $next($request);
         }
     }
 }

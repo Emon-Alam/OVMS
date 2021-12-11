@@ -17,9 +17,9 @@
                 <div class="col-lg-2 col-6">
                     <p class="small-font">Privacy Policy</p>
                 </div>
-                <div class="col-lg-2 col-6">
+                {{-- <div class="col-lg-2 col-6">
                     <p class="small-font">Teams</p>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="col-lg-6">

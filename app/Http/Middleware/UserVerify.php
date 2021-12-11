@@ -17,7 +17,7 @@ class UserVerify
     {
         if ($request->session()->get('usertype') != "User") {
             //dd($request);
-            $request->session()->flash('msg', 'Invalid req ... You do not have privilege to be a User!');
+            // $request->session()->flash('msg', 'Invalid req ... You do not have privilege to be a User!');
             return redirect()->route('dashboard');
             // 
         } else {

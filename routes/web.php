@@ -72,6 +72,8 @@ Route::middleware(['session'])->group(function () {
 
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
         Route::get('search', 'SearchController@index')->name('search')->middleware('user');
+
+
         //Work Request routes
 
     });
@@ -105,6 +107,13 @@ Route::middleware(['session'])->group(function () {
     Route::get('work/chat/fetch/{workId}/{updatedAt}', 'WorkRequestController@chatFetch')->name('work.chat.fetch');
 
     Route::post('work/chat/post/{workId}', 'WorkRequestController@chatSend')->name('work.chat.post');
+
+    //work list
+    Route::get('worklist/', 'WorkRequestController@worklistview')->name('worklist');
+
+    //payment status
+    Route::get('work/paymentlist', 'PaymentController@paymentstatus')->name('paymentstatus');
+
 
     //--------------
     Route::get('work/payment/{id}', 'PaymentController@showPayment')->name('payment.payment')->middleware('user');

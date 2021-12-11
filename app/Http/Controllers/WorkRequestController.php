@@ -24,7 +24,7 @@ class WorkRequestController extends Controller
             $oldWorkRequest = WorkRequest::where('user_id', $id)->first();
 
             if ($oldWorkRequest) {
-                $oldWorkRequest->delete();
+                //$oldWorkRequest->delete();
             }
 
             $newWorkRequest = new WorkRequest;
@@ -111,12 +111,16 @@ class WorkRequestController extends Controller
 
     public function ongoingView(Request $request, $id)
     {
-
-        $workRequest = WorkRequest::where('id', $id)
-            ->orWhere('user_id', $request->session()->get('userid'))
-            ->orWhere('volunteer_id', $request->session()->get('userid'))
-            ->first();
-
+        //Finding Work Request based on Usertype==============
+        $workRequest = WorkRequest::where('status', "accepted");
+        $user = $request->session()->get('usertype');
+        if ($user == 'User') {
+            $workRequest = $workRequest->where('user_id', $request->session()->get('userid'));
+        } else if ($user == 'Volunteer') {
+            $workRequest = $workRequest->where('volunteer_id', $request->session()->get('userid'));
+        }
+        $workRequest = $workRequest->first();
+        //Finding Work Request based on Usertype===============
 
 
         if ($workRequest) {
@@ -157,9 +161,10 @@ class WorkRequestController extends Controller
     public function chatFetch(Request $request, $workId, $updatedAt)
     {
 
+
         $workRequest = WorkRequest::where('id', $workId)
-            ->orWhere('user_id', $request->session()->get('userid'))
-            ->orWhere('volunteer_id', $request->session()->get('userid'))
+            // ->orWhere('user_id', $request->session()->get('userid'))
+            // ->orWhere('volunteer_id', $request->session()->get('userid'))
             ->first();
 
 
@@ -179,17 +184,13 @@ class WorkRequestController extends Controller
     public function chatSend(ChatRequest $request, $workId)
     {
         $senderId = $request->session()->get('userid');
-        $workRequest = WorkRequest::where('id', $workId)
-            ->orWhere('user_id', $request->session()->get('userid'))
-            ->orWhere('volunteer_id', $request->session()->get('userid'))
-            ->first();
+        $workRequest = WorkRequest::where('id', $workId)->first();
         if ($workRequest) {
             if ($workRequest->user_id == $senderId) {
                 $reciever_id = $workRequest->volunteer_id;
             } else {
                 $reciever_id = $workRequest->user_id;
             }
-
 
             $chat = new Chat;
             $chat->chat_id = "C" . $workRequest->id;
@@ -205,6 +206,17 @@ class WorkRequestController extends Controller
         } else {
             return false;
         }
+    }
+
+    public function worklistview(Request $request)
+    {
+        $workRequest = WorkRequest::where('status', "accepted")
+            ->where('user_id', $request->session()->get('userid'))
+            ->get();
+        // $workRequest = WorkRequest::all();
+
+        //dd($workRequest);
+        return view('user.worklist')->with('list', $workRequest);
     }
 
     public function workFinish(Request $request)
@@ -227,6 +239,7 @@ class WorkRequestController extends Controller
                 $work->save();
                 $workRequest->save();
                 //$workRequest->delete();
+
                 return response()->json('WorkRequest Complete');
             }
         }
