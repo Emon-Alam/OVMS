@@ -251,4 +251,12 @@ class WorkRequestController extends Controller
             return response()->json('WorkRequest canceled');
         }
     }
+
+    public function volunteerwork(Request $request)
+    {
+        $work = Work::where('volunteer_id', $request->session()->get('userid'))
+        ->get();
+
+        return view('volunteer.worklist')->with('list', $work);
+    }
 }

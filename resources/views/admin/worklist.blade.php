@@ -27,7 +27,7 @@
 
                     <div class="d-grid gap-2 col-6">
                         <input class="m-2 border border-info border-2 rounded-pill" type="text" name="" id="myInput"
-                            onkeyup="searchFun()" placeholder="search via Work ID">
+                            onkeyup="searchFun()" placeholder="search via Work ID , Work details , Date">
                     </div>
 
                     <table class="table table-hover table-bordered border-info" border="1" style="width: 100%"
@@ -83,6 +83,7 @@
                 </form>
 
             </center>
+
         </body>
     </div>
 </div>
@@ -92,25 +93,41 @@
 
 <script>
     const searchFun =() =>{
-                        let filter = document.getElementById('myInput').value.toUpperCase();
-                        let myTable = document.getElementById('myTable');
-                        let tr = myTable.getElementsByTagName('tr');
-
-                        for (let i = 0; i<tr.length; i++) {
-                        let td= tr[i].getElementsByTagName('td')[1];
-                            if(td) {
-                                
-                                let textvlaue = td.textContent || td.innerHTML;
-                                if(textvlaue.toUpperCase().indexOf(filter) > -1){
-                                    tr[i].style.display = '';
-
-                                }else{
-                                    tr[i].style.display = 'none';
-                                }
-                            }
-                          
-                        }
-
-                     }
-   
+    let filter = document.getElementById('myInput').value.toUpperCase();
+    let myTable = document.getElementById('myTable');
+    let tr = myTable.getElementsByTagName('tr');
+    
+    for (let i = 0; i<tr.length; i++) { let td=tr[i].getElementsByTagName('td')[1]; if(td) { let textvlaue=td.textContent ||
+        td.innerHTML; if(textvlaue.toUpperCase().indexOf(filter)> -1){
+        tr[i].style.display = '';
+    
+        }else{
+        let td2= tr[i].getElementsByTagName('td')[4];
+    
+        if(td2) {
+    
+        let textvlaue = td2.textContent || td2.innerHTML;
+        if(textvlaue.toUpperCase().indexOf(filter) > -1){
+        tr[i].style.display = '';
+    
+        }else{
+        let td3= tr[i].getElementsByTagName('td')[6];
+    
+        if(td3) {
+        let textvlaue = td3.textContent || td3.innerHTML;
+        if(textvlaue.toUpperCase().indexOf(filter) > -1){
+        tr[i].style.display = '';
+    
+        }else{
+        tr[i].style.display = 'none';
+        }
+        }
+        }
+        }
+    
+        }
+    
+        }
+        }
+        }
 </script>

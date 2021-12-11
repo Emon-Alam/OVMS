@@ -41,6 +41,17 @@
 
                 @endif
 
+                @if(session('usertype')=='Volunteer')
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('reviewlistuser') }}">Review list</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('worklistvolunteer') }}">Completed
+                        Work list</a>
+                </li>
+                @endif
+
                 @endif
 
 

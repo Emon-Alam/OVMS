@@ -114,6 +114,12 @@ Route::middleware(['session'])->group(function () {
     //payment status
     Route::get('work/paymentlist', 'PaymentController@paymentstatus')->name('paymentstatus');
 
+    //volunteer see review
+    Route::get('work/reviewlist', 'ReviewController@userreview')->name('reviewlistuser');
+
+    //volunteer see worklistview
+    Route::get('volunteer/worklist/', 'WorkRequestController@volunteerwork')->name('worklistvolunteer');
+
 
     //--------------
     Route::get('work/payment/{id}', 'PaymentController@showPayment')->name('payment.payment')->middleware('user');

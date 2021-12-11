@@ -27,7 +27,7 @@
 
                     <div class="d-grid gap-2 col-6">
                         <input class="m-2 border border-info border-2 rounded-pill" type="text" name="" id="myInput"
-                            onkeyup="searchFun()" placeholder="search via Work ID">
+                            onkeyup="searchFun()" placeholder="search via Work ID , Payment type , Ammount">
                     </div>
 
                     <table id="myTable" class="table table-hover table-bordered border-info" border="1"
@@ -112,12 +112,33 @@
                                     tr[i].style.display = '';
 
                                 }else{
+                                   let td2= tr[i].getElementsByTagName('td')[4];
+                                
+                                if(td2) {
+                                
+                                let textvlaue = td2.textContent || td2.innerHTML;
+                                if(textvlaue.toUpperCase().indexOf(filter) > -1){
+                                tr[i].style.display = '';
+                                
+                                }else{
+                                    let td3= tr[i].getElementsByTagName('td')[5];
+
+                                if(td3) {
+                                    let textvlaue = td3.textContent || td3.innerHTML;
+                                    if(textvlaue.toUpperCase().indexOf(filter) > -1){
+                                    tr[i].style.display = '';
+                                    
+                                    }else{
                                     tr[i].style.display = 'none';
+                                    }
+                                }
                                 }
                             }
                           
                         }
 
                      }
+                    }
+                }
    
 </script>

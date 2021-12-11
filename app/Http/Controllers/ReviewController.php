@@ -50,4 +50,12 @@ class ReviewController extends Controller
 
         return back();
     }
+
+    public function userreview(Request $request)
+    {
+        $review = Review::where('v_Id', $request->session()->get('userid'))
+            ->get();
+
+        return view('volunteer.reviewlist')->with('list', $review);
+    }
 }
